@@ -1,20 +1,10 @@
 # MLC LLM
 
-| [Project](https://mlc.ai/mlc-llm/) | [Blog](https://mlc.ai/blog/blog/2023/05/01/bringing-accelerated-llm-to-consumer-hardware) | [Demo: iOS](https://mlc.ai/mlc-llm/#iphone) | [Demo: CLI](https://mlc.ai/mlc-llm/#windows-linux-mac) | [WebLLM](https://mlc.ai/web-llm/) | [WebStableDiffusion](https://mlc.ai/web-stable-diffusion/) |
+
+<img src="site/img/diag.svg" alt="Architecture Diagram" height=""/>
 
 MLC LLM is a **universal solution** that allows **any language models** to be **deployed natively** on a diverse set of hardware backends and native applications, plus a **productive framework** for everyone to further optimize model performance for their own use cases.
 
-Our mission is to **enable everyone to develop, optimize and deploy AI models natively on everyone's devices**.
-
-Everything runs locally  with no server support and accelerated with local GPUs on your phone and laptops.
-[Supported platforms](https://github.com/mlc-ai/mlc-llm/issues/15) include:
-* iPhone, iPad
-* Metal GPUs and Intel/ARM MacBooks;
-* AMD and NVIDIA GPUs via Vulkan on Windows and Linux;
-* NVIDIA GPUs via CUDA on Windows and Linux;
-* WebGPU on browsers (through companion project [WebLLM](https://github.com/mlc-ai/web-llm/tree/main)).
-
-**[Check out our instruction page to try out!](https://mlc.ai/mlc-llm/)**
 
 <p align="center">
   <img src="site/demo.gif" height="700">
@@ -41,7 +31,6 @@ The cornerstone of our solution is machine learning compilation ([MLC](https://m
 - Quantization: We utilize low-bit quantizations to compress the model weights and leverage TVM's loop-level TensorIR to quickly customize code generations for different compression encoding schemes.
 - Runtime: The final generated libraries run on the native environment, with TVM runtime that comes with minimal dependencies, which supports various GPU driver APIs and native language bindings (C, JavaScript, etc).
 
-<img src="site/img/diag.svg" alt="Architecture Diagram" height=""/>
 
 Additionally, we also provide a lightweight C++-based example CLI app that showcases how to wrap up the compiled artifacts and necessary pre/post-processing, which will hopefully clarify the workflow to embed them into native applications.
 
@@ -49,16 +38,3 @@ As a starting point, MLC generates GPU shaders for CUDA, Vulkan and Metal. It is
 
 We heavily rely on open-source ecosystem, more specifically, [TVM Unity](https://discuss.tvm.apache.org/t/establish-tvm-unity-connection-a-technical-strategy/13344), an exciting latest development in the TVM project that enables python-first interactive MLC development experiences that allows us to easily compose new optimizations all in Python, and incrementally bring our app to the environment of interest. We also leveraged optimizations such as fused quantization kernels, first class dynamic shape support and diverse GPU backends.
 
-## Links
-
-- You might also be interested in [WebLLM](https://github.com/mlc-ai/web-llm/tree/main), our companion derived project that focus on bringing LLM to browsers.
-- Project page for [instructions](site/index.md).
-- [Local build Instructions for ios App](ios/README.md).
-- You might want to check out our online public [Machine Learning Compilation course](https://mlc.ai) for a systematic
-walkthrough of our approaches.
-
-## Acknowledgements
-
-This project is initiated by members from CMU catalyst, UW SAMPL, SJTU, OctoML and the MLC community. We would love to continue developing and supporting the open-source ML community.
-
-This project is only possible thanks to the shoulders open-source ecosystems that we stand on. We want to thank the Apache TVM community and developers of the TVM Unity effort. The open-source ML community members made these models publicly available. PyTorch and Hugging Face communities that make these models accessible. We would like to thank the teams behind Vicuna, SentencePiece, LLaMA, Alpaca and MOSS. We also would like to thank the Vulkan, Swift, C++, python Rust communities that enables this project.
